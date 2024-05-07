@@ -9,17 +9,36 @@
 # Avoid using indexOf or lastIndexOf.
 
 def check_triple_match(nums):
-    hash_table = {}
+    anchor = 0
+    runner = 1
 
-    for num in nums:
-        hash_table[num] = True
-
-        if num == 0:
-            continue
-        if hash_table.get(num * 3) or hash_table.get(num / 3):
+    while runner < len(nums):
+        if nums[anchor] * 3 == nums[runner]:
             return True
-    
+        elif nums[anchor] * 3 > nums[runner]:
+            runner += 1
+        else:
+            anchor += 1
+
+        if anchor == runner:
+            runner += 1
+
+
     return False
+
+
+# def check_triple_match(nums):
+#     hash_table = {}
+
+#     for num in nums:
+#         hash_table[num] = True
+
+#         if num == 0:
+#             continue
+#         if hash_table.get(num * 3) or hash_table.get(num / 3):
+#             return True
+    
+#     return False
 
 print(check_triple_match([1, 3, 9, 28]) == True)
 print(check_triple_match([1, 2, 4, 10, 11, 12]) == True)
