@@ -17,9 +17,8 @@ def assign_treats(appetite, treats):
         if appetite[a_runner] <= treats[t_runner]:
             total += 1
             a_runner += 1
-            t_runner += 1
-        else:
-            t_runner += 1
+        
+        t_runner += 1
 
     return total
 
