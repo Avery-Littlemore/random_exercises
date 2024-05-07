@@ -8,14 +8,12 @@
 
 def reduce_to_unique(array):
     anchor = 0
-    pointer = 1
-    while pointer < len(array):
-        if array[anchor] == array[pointer]:
-            pointer += 1
-        else:
-            array[anchor + 1] = array[pointer]
+    runner = 1
+    while runner < len(array):
+        if array[anchor] != array[runner]:
+            array[anchor + 1] = array[runner]
             anchor += 1
-            pointer += 1
+        runner += 1
     
     return len(array[:anchor + 1])
             
